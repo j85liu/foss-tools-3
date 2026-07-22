@@ -1,8 +1,5 @@
-# Wrap-Up: Docs, Licensing & Dependency Hygiene
-
-These three didn't get their own build task, but they're still real
-gaps at Harborlight Cloud — cover them as a short group discussion,
-not a build.
+# Section 4: Wrap-Up — Docs, Licensing & Dependency Hygiene
+Led by the Wrap-Up Lead
 
 ## Docs & Community
 Harborlight has no CONTRIBUTING.md and no runbook for maintenance
@@ -20,11 +17,9 @@ product on top of this code.
 
 ## Dependency Hygiene
 Harborlight's dependencies aren't pinned to specific versions — every
-subsystem could silently run different tooling code. This is a
-smaller version of the same root problem as the CI/CD gap: nothing
-confirms what's actually protected before a command runs. One
-sentence: why does this matter even if it's not today's build task?
+subsystem could silently run different tooling code. One sentence:
+why does this matter even if it's not today's build task?
 
-## Your slide (just 1)
-One slide, 3 bullets — one per section above. No artifact required.
-This is a discussion slide, not a demo.
+## What to hand the Presenter
+One bullet per topic above (3 total). This becomes Slide 4, if
+included — otherwise fold one line into Slide 1.

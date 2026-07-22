@@ -2,26 +2,20 @@
 
 In February 2017, an engineer at a real cloud storage provider ran a
 routine maintenance command intended to remove a small number of
-servers from one subsystem. A typo in the command's input caused it
-to remove far more servers than intended — including ones that
-several core services depended on. There was no safeguard checking
-the size or safety of the command before it ran. The result: a large
-portion of the internet's storage-dependent services went down for
-several hours. (Source: the company's own public post-incident
-summary.)
+servers. A typo caused it to remove far more than intended, taking
+down a large portion of the internet for several hours. (Source: the
+company's own public post-incident summary.)
 
-Harborlight Cloud (fictional) just had the same thing happen. Look
-at `ci-cd/maintenance-command.md` — this command is about to remove
-far more servers than is safe, just like the real incident.
-Everything else in this repo is Harborlight's tooling as it existed
-that day: no CI, no required review, no license, no documented
-process.
+Harborlight Cloud (fictional) just had the same thing happen. Look at
+`ci/maintenance-command.md` — this command is about to remove far
+more servers than is safe.
 
-Two teams will build real fixes. A third piece — docs, licensing, and
-dependency hygiene — gets covered as a group discussion, not a build.
+Your team has 5 roles: a CI Lead, a Version Control Lead, a CD Lead,
+a Wrap-Up Lead, and a Presenter. Work through the four sections
+together, in order — CI, then Version Control, then CD, then Wrap-Up
+— each led by its own lead. The Presenter compiles everyone's
+contributions into a 3-4 slide deck.
+
 By the end, Harborlight will have gone from "one typo takes down
-everything" to "destructive changes can't happen without a check."
-
-Teams that finish early can attempt an optional stretch goal: turning
-this from CI (verify) into full CI/CD (verify, then automatically
-ship a status page).
+everything" to "destructive changes can't happen without a check —
+and a safe state is confirmed automatically, in public."
