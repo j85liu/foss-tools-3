@@ -10,11 +10,12 @@ portion of the internet's storage-dependent services went down for
 several hours. (Source: the company's own public post-incident
 summary.)
 
-Harborlight Cloud (fictional) just had the same thing happen. Look in
-`ci-cd/configs/` — one subsystem never got marked as protected,
-just like the real incident. Everything else in this repo is
-Harborlight's tooling as it existed that day: no CI, no required
-review, no license, no documented process.
+Harborlight Cloud (fictional) just had the same thing happen. Look
+at `ci-cd/maintenance-command.md` — this command is about to remove
+far more servers than is safe, just like the real incident.
+Everything else in this repo is Harborlight's tooling as it existed
+that day: no CI, no required review, no license, no documented
+process.
 
 Two teams will build real fixes. A third piece — docs, licensing, and
 dependency hygiene — gets covered as a group discussion, not a build.
