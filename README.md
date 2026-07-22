@@ -21,3 +21,7 @@ Two teams will build real fixes. A third piece — docs, licensing, and
 dependency hygiene — gets covered as a group discussion, not a build.
 By the end, Harborlight will have gone from "one typo takes down
 everything" to "destructive changes can't happen without a check."
+
+Teams that finish early can attempt an optional stretch goal: turning
+this from CI (verify) into full CI/CD (verify, then automatically
+ship a status page).
