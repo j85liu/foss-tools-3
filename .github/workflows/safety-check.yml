@@ -1,0 +1,54 @@
+name: Destructive Command Safety Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate-maintenance-command:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate server removal limit
+        run: |
+          python3 <<'PY'
+          import re
+          import sys
+
+          file_path = "ci/maintenance-command.md"
+
+          with open(file_path, "r") as file:
+              content = file.read()
+
+          remove_match = re.search(
+              r"Servers to remove:\s*(\d+)",
+              content
+          )
+
+          total_match = re.search(
+              r"Total servers in subsystem:\s*(\d+)",
+              content
+          )
+
+          if not remove_match or not total_match:
+              print("ERROR: Server counts could not be found.")
+              sys.exit(1)
+
+          remove = int(remove_match.group(1))
+          total = int(total_match.group(1))
+
+          percent = (remove / total) * 100
+
+          print(f"Servers to remove: {remove}")
+          print(f"Total servers: {total}")
+          print(f"Removal percentage: {percent:.2f}%")
+
+          if percent > 10:
+              print("DANGER: Command would remove more than 10% of servers.")
+              sys.exit(1)
+
+          print("SAFE: Command is within the 10% removal limit.")
+          PY
