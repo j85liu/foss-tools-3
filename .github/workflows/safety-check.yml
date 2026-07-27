@@ -38,20 +38,17 @@ jobs:
               sys.exit(1)
           print("SAFE: Command is within the 10% removal limit.")
           PY
-
-    deploy:
-        needs: check
-        if: github.ref == 'refs/heads/main'
-        runs-on: ubuntu-latest
-        permissions:
-          pages: write
-          id-token: write
-        steps:
-          - uses: actions/checkout@v4
-          - uses: actions/configure-pages@v4
-          - uses: actions/upload-pages-artifact@v3
-            with:
-              path: 'cd/public'
-          - uses: actions/deploy-pages@v4
-  
-          name: check-status
+  deploy:
+    needs: validate-maintenance-command
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'cd/public'
+      - uses: actions/deploy-pages@v4
