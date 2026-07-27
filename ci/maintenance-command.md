@@ -1,5 +1,5 @@
 # Maintenance Command
 
 Target subsystem count: 8
-Servers to remove: 6000
-Total servers in subsystem: 8000# CI trigger
+Servers to remove: 8
+Total servers in subsystem: 8000
